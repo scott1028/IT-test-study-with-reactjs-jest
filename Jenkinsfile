@@ -1,10 +1,15 @@
-node('node') {
-	stage('checkout') {
-		checkout scm
-	}
+#!/usr/bin/env groovy
 
-        stage('test') {
-                sh 'npm --version'
-        }
+pipeline {
+  agent any
+  tools {nodejs "latest"}
+  stages {
+    stage('checkout') {
+      checkout scm
+    }
+
+    stage('test') {
+      sh 'npm --version'
+    }
+  }
 }
-
