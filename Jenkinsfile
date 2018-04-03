@@ -12,7 +12,9 @@ pipeline {
 
 		stage('test') {
 			steps {
-	 			sh 'npm --version'
+	 			sh 'yarn --version'
+	 			sh 'yarn'
+	 			sh 'yarn run test'
 	 		}
 		}
   	}
