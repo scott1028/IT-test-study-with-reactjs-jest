@@ -28,15 +28,12 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.3",
     "jest": "^22.4.3",
-    "jest-junit": "^3.6.0",
     "nock": "^9.2.3",
     "node-fetch": "^2.1.2",
     "webpack-cli": "^2.0.9"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/src/jest.enzyme.config.js",
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
   }
 }
