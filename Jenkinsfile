@@ -5,11 +5,15 @@ pipeline {
 	tools {nodejs "latest"}
 	stages {
 		stage('checkout') {
-	  		checkout scm
+			steps {
+	  			checkout scm
+	  		}
 		}
 
 		stage('test') {
-	 		sh 'npm --version'
+			steps {
+	 			sh 'npm --version'
+	 		}
 		}
   	}
 }
