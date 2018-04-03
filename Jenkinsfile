@@ -12,9 +12,12 @@ pipeline {
 
 		stage('test') {
 			steps {
-	 			sh 'yarn --version'
-	 			sh 'yarn'
-	 			sh 'yarn run test'
+				withEnv(["JEST_JUNIT_OUTPUT=./jest-test-results.xml"]) {
+		 			sh 'yarn --version'
+		 			sh 'yarn'
+		 			sh 'yarn run test -- --ci --testResultsProcessor="jest-junit"'
+				}
+				junit 'jest-test-results.xml'
 	 		}
 		}
   	}
