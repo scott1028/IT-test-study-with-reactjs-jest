@@ -2,7 +2,7 @@
 
 pipeline {
 	agent any
-	tools {nodejs "8.10.0"}
+	tools {nodejs "latest"}
 	stages {
 		stage('checkout') {
 			steps {
