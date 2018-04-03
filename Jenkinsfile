@@ -15,7 +15,7 @@ pipeline {
 	 			sh 'yarn --version'
 	 			sh 'yarn'
 	 			sh 'yarn run test'
-  				publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'coverage/Icov-report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
+  				publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'coverage/lcov-report', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: ''])
 	 		}
 		}
   	}
