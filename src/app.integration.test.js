@@ -22,8 +22,18 @@ import { Provider, connect } from 'react-redux';
 
 import colors from 'colors';
 
+
+// mock something in your APP
+import * as utils from './utils';
+// jest.mock('./utils');
+// utils.func1 = () => 999;
+// utils.func2.mockRestore();
+// utils.func1.mockRestore();
+console.log(utils);
+
+
 beforeEach(() => {
-  console.log(123123);
+  console.log(color.red('[beforeStarted]'));
 });
 
 it('integration test sample', (done) => {
