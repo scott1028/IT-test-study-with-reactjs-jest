@@ -25,15 +25,14 @@ import colors from 'colors';
 
 // mock something in your APP
 import * as utils from './utils';
-// jest.mock('./utils');
-// utils.func1 = () => 999;
-// utils.func2.mockRestore();
-// utils.func1.mockRestore();
 console.log(utils);
+
+// only mock utils.func1, and func2 is original.
+// utils.func1.mockRestore();
 
 
 beforeEach(() => {
-  console.log(color.red('[beforeStarted]'));
+  console.log('[beforeStarted]');
 });
 
 it('integration test sample', (done) => {
@@ -79,4 +78,18 @@ it('integration test sample', (done) => {
             console.log(500);
         }
     }, 0);
-})
+});
+
+it('another test', (done) => {
+    console.log(utils);
+
+    // only mock utils.func1, and func2 is original.
+    jest.spyOn(utils, 'func1').mockImplementation(() => 999);
+
+    console.log(utils.func1())
+
+    utils.func1.mockRestore();  // this is important or you will affect next testcase
+    console.log(utils.func1());
+
+    done();
+});
