@@ -22,6 +22,9 @@ import { Provider, connect } from 'react-redux';
 
 import colors from 'colors';
 
+beforeEach(() => {
+  console.log(123123);
+});
 
 it('integration test sample', (done) => {
     const store = createStore(myReducer)
