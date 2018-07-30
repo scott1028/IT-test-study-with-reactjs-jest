@@ -18,16 +18,20 @@ exports[`integration test sample 1`] = `
       onDecrement={[Function]}
       onIncrement={[Function]}
       onRemove={[Function]}
+      onTest={[Function]}
       value={
         Object {
           "todos": Array [
             1,
             2,
+            3,
+            4,
           ],
         }
       }
     >
       <Counter
+        doOnTest={[Function]}
         onChange={[Function]}
         onDecrement={[Function]}
         onIncrement={[Function]}
@@ -37,11 +41,21 @@ exports[`integration test sample 1`] = `
             "todos": Array [
               1,
               2,
+              3,
+              4,
             ],
           }
         }
       >
         <div>
+          <div>
+            func1: 
+            100
+          </div>
+          <div>
+            func2: 
+            200
+          </div>
           <button
             onClick={[Function]}
           >
@@ -51,6 +65,11 @@ exports[`integration test sample 1`] = `
             onClick={[Function]}
           >
             Sub
+          </button>
+          <button
+            onClick={[Function]}
+          >
+            Test
           </button>
           <hr />
           <div
@@ -99,11 +118,59 @@ exports[`integration test sample 1`] = `
               Del
             </button>
           </div>
+          <div
+            key="2"
+          >
+            <label>
+              2
+            </label>
+             
+            <input
+              onChange={[Function]}
+              style={
+                Object {
+                  "width": 350,
+                }
+              }
+              value={3}
+            />
+             
+            <button
+              onClick={[Function]}
+            >
+              Del
+            </button>
+          </div>
+          <div
+            key="3"
+          >
+            <label>
+              3
+            </label>
+             
+            <input
+              onChange={[Function]}
+              style={
+                Object {
+                  "width": 350,
+                }
+              }
+              value={4}
+            />
+             
+            <button
+              onClick={[Function]}
+            >
+              Del
+            </button>
+          </div>
           <pre>
             {
   "todos": [
     1,
-    2
+    2,
+    3,
+    4
   ]
 }
           </pre>
