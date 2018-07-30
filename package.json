@@ -9,6 +9,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "jasmine-reporters": "^2.3.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -18,6 +19,7 @@
     "webpack": "^4.0.1"
   },
   "scripts": {
+    "start": "yarn build && npx webpack-dev-server",
     "build": "npx webpack",
     "test": "npx node ./node_modules/.bin/jest src/app.integration.test.js --coverage"
   },
@@ -31,7 +33,8 @@
     "jest": "^22.4.3",
     "nock": "^9.2.3",
     "node-fetch": "^2.1.2",
-    "webpack-cli": "^2.0.9"
+    "webpack-cli": "^2.0.9",
+    "webpack-dev-server": "^3.1.5"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/src/jest.enzyme.config.js",

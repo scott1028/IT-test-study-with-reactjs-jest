@@ -6,6 +6,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { createStore, bindActionCreators } from 'redux';
 import { Provider, connect } from 'react-redux';
+import { func1, func2 } from './utils';
 
 const Redux = {
     createStore,
@@ -55,6 +56,12 @@ function myReducer(currentState, action) {
     newState.todos.splice(action.index, 1)
     return newState
   }
+  else if(action.type === 'TEST'){
+    var newState = Object.assign({}, currentState)
+    var idx = newState.todos.length;
+    newState.todos.push(idx + 1)
+    return newState
+  }
 
   return currentState
 }
@@ -63,8 +70,14 @@ function myReducer(currentState, action) {
 // `set refs` input tag's another handering way, ref: https://reactjs.org/docs/refs-and-the-dom.html#adding-a-ref-to-a-dom-element
 const Counter = (props) => (
     <div>
+    <div>func1: { func1() }</div>
+    <div>func2: { func2() }</div>
     <button onClick={props.onIncrement}>Add</button>
     <button onClick={props.onDecrement}>Sub</button>
+    <button onClick={() => {
+        console.log(props);
+        props.doOnTest()
+    }}>Test</button>
     <hr />
     {
         props.value.todos.map((obj, idx) => (
@@ -89,6 +102,7 @@ var App = (props) => {
             onDecrement={() => props.onDecrement()}
             onChange={(index) => (e) => props.onChange(index, e.target.value)}
             onRemove={(index) => () => props.onRemove(index)}
+            doOnTest={() => props.onTest()}
         />
     )
 }
@@ -107,10 +121,13 @@ var mapDispatchToProps = function(dispatch) {
     onDecrement: () => ({ type: 'DECREMENT' }),
     onChange: (index, value) => ({ type: 'MODIFY', index: index, value: value }),
     onRemove: (index) => ({ type: 'REMOVE', index: index }),
+    onTest: () => {
+        return { type: 'TEST' }
+    },
   }
   var dispatcher = Redux.bindActionCreators(actionCreators, dispatch);
   // return dispatcher
-  return {
+  var output = {
     ...dispatcher,
     onIncrement: function(){
         if(typeof fetch === 'undefined'){
@@ -126,6 +143,8 @@ var mapDispatchToProps = function(dispatch) {
         })
     }
   };
+  console.log(output);
+  return output;
 }
 
 /*
