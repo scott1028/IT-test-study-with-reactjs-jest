@@ -19,9 +19,10 @@
     "webpack": "^4.0.1"
   },
   "scripts": {
-    "start": "yarn build && npx webpack-dev-server",
-    "build": "npx webpack",
-    "test": "npx node ./node_modules/.bin/jest src/app.integration.test.js --coverage"
+    "start": "yarn build && webpack-dev-server",
+    "build": "webpack",
+    "test": "jest src/app.integration.test.js --coverage",
+    "test:simple": "jest src/simple.test.js --coverage"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

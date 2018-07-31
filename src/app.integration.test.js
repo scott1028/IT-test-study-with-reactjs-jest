@@ -25,7 +25,9 @@ import colors from 'colors';
 
 // mock something in your APP
 import * as utils from './utils';
-console.log(utils);
+import utils2 from './utils';
+console.log('[utils]', utils);
+console.log('[utils2]', utils2);
 
 // only mock utils.func1, and func2 is original.
 // utils.func1.mockRestore();
@@ -42,7 +44,6 @@ it('integration test sample', (done) => {
             <$App />
         </Provider>,
     )
-
     console.log(colors.red(wrapper.html()))
     nock('http://www.example.com').get('/a1').reply(200, { mockSuccess: true })
     wrapper.find('button').first().simulate('click')
@@ -80,7 +81,7 @@ it('integration test sample', (done) => {
     }, 0);
 });
 
-it('another test', (done) => {
+test('another test', (done) => {
     console.log(utils);
 
     // only mock utils.func1, and func2 is original.
