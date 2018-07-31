@@ -92,5 +92,16 @@ it('another test', (done) => {
     utils.func1.mockRestore();  // this is important or you will affect next testcase
     console.log(utils.func1());
 
+    alert(200);
+    alert(400);
+
+    // ref: https://jestjs.io/docs/en/mock-functions
+    // ref: https://jestjs.io/docs/en/22.4/mock-functions  If you are using old version
+    expect(alert.mock.calls.length).toBe(2);  // you invoked alert twice before
+    expect(alert.mock.calls[0][0]).toBe(200);  // what argument you pass first invoking.
+    expect(alert.mock.calls[1][0]).toBe(400);  // what argument you pass second invoking.
+
+    expect(alert.mock.instances.length).toBe(2);  // equal to alert.mock.calls
+    
     done();
 });

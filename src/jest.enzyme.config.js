@@ -14,3 +14,7 @@ jasmine.getEnv().addReporter(
         filePrefix: 'test-results'
     })
 );
+
+global.alert = jest.fn();
+// or
+// global.alert = jest.fn().mockImplementation(msg => `<< ${msg} >>`);

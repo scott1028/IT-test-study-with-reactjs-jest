@@ -17,6 +17,9 @@ test('another test', () => {
 	// jest.mock('axios');	// no work if put this inside/
 
 	console.log(axios);
-    debugger;
     expect(true).toBe(true);
+
+    alert(10);
+    alert(20);
+    debugger;
 });

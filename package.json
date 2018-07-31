@@ -43,6 +43,9 @@
     "setupTestFrameworkScriptFile": "<rootDir>/src/jest.enzyme.config.js",
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
-    ]
+    ],
+    "globals": {
+      "__DEV__1": true
+    }
   }
 }
