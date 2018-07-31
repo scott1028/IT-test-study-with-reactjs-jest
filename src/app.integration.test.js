@@ -81,7 +81,7 @@ it('integration test sample', (done) => {
     }, 0);
 });
 
-test('another test', (done) => {
+it('another test', (done) => {
     console.log(utils);
 
     // only mock utils.func1, and func2 is original.
