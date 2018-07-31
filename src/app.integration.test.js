@@ -44,6 +44,9 @@ it('integration test sample', (done) => {
             <$App />
         </Provider>,
     )
+
+    jest.spyOn(utils, 'func1').mockImplementation(() => 99999);
+
     console.log(colors.red(wrapper.html()))
     nock('http://www.example.com').get('/a1').reply(200, { mockSuccess: true })
     wrapper.find('button').first().simulate('click')
@@ -73,6 +76,15 @@ it('integration test sample', (done) => {
             console.log(colors.red(wrapper.html()))
             expect(wrapper).toMatchSnapshot()
             clearInterval(fd);
+
+            // test mock & restore
+            console.log([ utils.func1() ]);
+            expect(utils.func1()).toBe(99999);
+            utils.func1.mockRestore();
+            expect(utils.func1()).toBe(100);
+            console.log([ utils.func1() ]);
+
+            // finished
             done();
         }
         else{

@@ -50,7 +50,7 @@ exports[`integration test sample 1`] = `
         <div>
           <div>
             func1: 
-            100
+            99999
           </div>
           <div>
             func2: 
