@@ -41,34 +41,23 @@
     "webpack-dev-server": "^3.1.5"
   },
   "jest": {
-    "coverageThreshold": {
-      "global": {
-        "branches": 0,
-        "functions": 0,
-        "lines": 78.96,
-        "statements": 0
-      }
+    "setupTestFrameworkScriptFile": "<rootDir>/src/jest.enzyme.config.js",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "globals": {
+      "__DEV__1": true
     },
     "projects": [
       {
         "displayName": "my-default-jest-test",
-        "runner": "jest-runner",
-        "setupTestFrameworkScriptFile": "<rootDir>/src/jest.enzyme.config.js",
-        "snapshotSerializers": [
-          "enzyme-to-json/serializer"
-        ],
-        "globals": {
-          "__DEV__1": true
-        }
-      },
-      {
-        "displayName": "test-2",
-        "setupTestFrameworkScriptFile": "<rootDir>/src/jest.enzyme.config.js",
-        "snapshotSerializers": [
-          "enzyme-to-json/serializer"
-        ],
-        "globals": {
-          "__DEV__1": true
+        "coverageThreshold": {
+          "global": {
+            "branches": 0,
+            "functions": 0,
+            "lines": 78.96,
+            "statements": 0
+          }
         }
       }
     ]
