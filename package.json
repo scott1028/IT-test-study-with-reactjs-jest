@@ -23,6 +23,7 @@
     "start": "yarn build && webpack-dev-server",
     "build": "webpack",
     "test": "jest src/app.integration.test.js --coverage",
+    "test:all": "jest --coverage",
     "test:simple": "jest src/simple.test.js --coverage",
     "test:simple:debug": "npx node debug ./node_modules/.bin/jest src/simple.test.js --coverage"
   },
@@ -40,12 +41,36 @@
     "webpack-dev-server": "^3.1.5"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/src/jest.enzyme.config.js",
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "globals": {
-      "__DEV__1": true
-    }
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 78.96,
+        "statements": 0
+      }
+    },
+    "projects": [
+      {
+        "displayName": "my-default-jest-test",
+        "runner": "jest-runner",
+        "setupTestFrameworkScriptFile": "<rootDir>/src/jest.enzyme.config.js",
+        "snapshotSerializers": [
+          "enzyme-to-json/serializer"
+        ],
+        "globals": {
+          "__DEV__1": true
+        }
+      },
+      {
+        "displayName": "test-2",
+        "setupTestFrameworkScriptFile": "<rootDir>/src/jest.enzyme.config.js",
+        "snapshotSerializers": [
+          "enzyme-to-json/serializer"
+        ],
+        "globals": {
+          "__DEV__1": true
+        }
+      }
+    ]
   }
 }
